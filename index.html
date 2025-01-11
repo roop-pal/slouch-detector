@@ -1,0 +1,104 @@
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0, user-scalable=no">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* So elements stack vertically */
+    }
+    #stats {
+      width: 30%;
+      height: 100px;
+    }
+    #main {
+      display: flex;
+      margin: 0;
+      width: 100%;
+    }
+    .container {
+      display: flex;
+      width: 100%;
+    }
+    .canvas-wrapper {
+      position: relative;
+      flex: 1;
+    }
+    #scatter-gl-container,
+    #keypointGraph {
+      flex: 1;
+      position: relative;
+    }
+    canvas,
+    video {
+      max-height: 480px;
+      width: auto;
+    }
+    #keypointGraph {
+      height: 480px;
+    }
+    /* Simple layout for threshold controls */
+    #threshold-controls {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="stats"></div>
+  <div id="main">
+    <div class="container">
+      <div class="canvas-wrapper">
+        <canvas id="output"></canvas>
+        <video id="video" playsinline style="
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          visibility: hidden;
+          width: auto;
+          height: auto;
+        "></video>
+      </div>
+      <div id="scatter-gl-container"></div>
+      <canvas id="keypointGraph"></canvas>
+    </div>
+  </div>
+
+  <!-- Threshold Slider and Toggle Button -->
+  <div id="threshold-controls">
+    <label for="thresholdSlider">
+      Threshold: <span id="thresholdValue">300</span>
+    </label>
+    <input 
+      type="range" 
+      id="thresholdSlider" 
+      min="0" 
+      max="480" 
+      step="1" 
+      value="300"
+    />
+    <button id="toggleAlertBtn">Alert: OFF</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="src/index.js"></script>
+</body>
+</html>
