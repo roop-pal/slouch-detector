@@ -1,5 +1,7 @@
 First prototype:
-https://github.com/user-attachments/assets/749f38fd-dc27-4478-b682-8fee3a143171
+
+https://github.com/user-attachments/assets/466490a4-42b1-4e78-a478-8b87cd30b799
+
 
 # Demos
 
