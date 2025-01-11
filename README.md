@@ -1,3 +1,6 @@
+First prototype:
+https://github.com/user-attachments/assets/749f38fd-dc27-4478-b682-8fee3a143171
+
 # Demos
 
 Try our demos and get inspired with what you can do with pose-detection models!
